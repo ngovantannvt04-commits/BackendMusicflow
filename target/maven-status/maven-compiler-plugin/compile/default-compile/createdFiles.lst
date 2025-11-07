@@ -1,0 +1,3 @@
+com\musicflow_api\musicflow\MusicflowApplication.class
+com\musicflow_api\musicflow\controller\MusicflowController.class
+com\musicflow_api\musicflow\service\MusicflowService.class
