@@ -75,7 +75,7 @@ public class MusicflowService {
     }
 
     public Map<String, Object> getArtistTopTracks(String artistId) {
-        String url = "https://api.deezer.com/artist/" + artistId + "/top?limit=100";
+        String url = "https://api.deezer.com/artist/" + artistId + "/top?limit=25";
         ResponseEntity<Map> response = restTemplate.getForEntity(url, Map.class);
         return response.getBody();
     }
