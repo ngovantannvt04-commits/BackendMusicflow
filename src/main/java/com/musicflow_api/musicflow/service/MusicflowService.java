@@ -79,9 +79,9 @@ public class MusicflowService {
         ResponseEntity<Map> response = restTemplate.getForEntity(url, Map.class);
         return response.getBody();
     }
-    // Lấy danh sách album nổi bật (để random hoặc hiển thị)
+    // Lấy danh sách album nổi bật 
     public Map<String, Object> getRandomAlbums() {
-        String url = "https://api.deezer.com/chart/0/albums";
+        String url = "https://api.deezer.com/chart/0/albums?limit=35";
         Map<String, Object> response = restTemplate.getForObject(url, Map.class);
         return response;
     }
@@ -89,6 +89,12 @@ public class MusicflowService {
     // Lấy chi tiết album + danh sách track trong album
     public Map<String, Object> getAlbumTracks(Long albumId) {
         String url = "https://api.deezer.com/album/" + albumId;
+        Map<String, Object> response = restTemplate.getForObject(url, Map.class);
+        return response;
+    }
+    //lay ds playlist
+    public Map<String, Object> getPlaylists() {
+        String url = "https://api.deezer.com/chart/0/playlists?limit=50"; 
         Map<String, Object> response = restTemplate.getForObject(url, Map.class);
         return response;
     }
