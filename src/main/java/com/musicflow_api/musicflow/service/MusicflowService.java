@@ -98,4 +98,10 @@ public class MusicflowService {
         Map<String, Object> response = restTemplate.getForObject(url, Map.class);
         return response;
     }
+    // Lấy danh sách album của artist đã chọn
+    public Map<String, Object> getAlbumsArtist(Long artistId) {
+        String url = "https://api.deezer.com/artist/"+ artistId + "/albums";
+        Map<String, Object> response = restTemplate.getForObject(url, Map.class);
+        return response;
+    }
 }

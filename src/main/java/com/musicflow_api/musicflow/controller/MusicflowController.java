@@ -50,4 +50,8 @@ public class MusicflowController {
     public Map<String, Object> getPlaylists() {
         return musicflowService.getPlaylists();
     }
+    @GetMapping("artist/{artistId}/albums")
+    public  Map<String, Object> getAlbumsArtist(@PathVariable Long artistId) {
+        return musicflowService.getAlbumsArtist(artistId);
+    }
 }
