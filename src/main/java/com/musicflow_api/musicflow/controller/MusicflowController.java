@@ -23,6 +23,7 @@ public class MusicflowController {
     public Map<String, Object> searchTracks(@RequestParam String q) {
         return musicflowService.searchTracks(q);
     }
+    //=========Artist=======
     @GetMapping("/artists/random")
     public Map<String, Object> getRandomArtists() {
         return musicflowService.getRandomArtists();
@@ -31,27 +32,30 @@ public class MusicflowController {
     public Map<String, Object> searchArtists(@RequestParam String q) {
         return musicflowService.searchArtists(q);
     }
-
     @GetMapping("/artist/{id}/top")
     public Map<String, Object> getArtistTop(@PathVariable String id) {
         return musicflowService.getArtistTopTracks(id);
     }
-
+    @GetMapping("artist/{artistId}/albums")
+    public  Map<String, Object> getAlbumsArtist(@PathVariable Long artistId) {
+        return musicflowService.getAlbumsArtist(artistId);
+    }
+    //=======================
     @GetMapping("albums/random")
     public  Map<String, Object> getRandomAlbums() {
         return musicflowService.getRandomAlbums();
     }
-
     @GetMapping("albums/{albumId}")
     public Map<String, Object> getAlbumTracks(@PathVariable Long albumId) {
         return musicflowService.getAlbumTracks(albumId);
     }
+    //=======================
     @GetMapping("/playlists")
     public Map<String, Object> getPlaylists() {
         return musicflowService.getPlaylists();
     }
-    @GetMapping("artist/{artistId}/albums")
-    public  Map<String, Object> getAlbumsArtist(@PathVariable Long artistId) {
-        return musicflowService.getAlbumsArtist(artistId);
+    @GetMapping("playlists/{playlistId}/tracks")
+    public Map<String, Object> getPlaylistTracks(@PathVariable Long playlistId) {
+        return musicflowService.getPlaylistTracks(playlistId);
     }
 }
