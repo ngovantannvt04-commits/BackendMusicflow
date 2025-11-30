@@ -23,7 +23,7 @@ public class MusicflowService {
 
 	
     public Map<String, Object> searchTracks(String keyword) {
-        String url = "https://api.deezer.com/search?q=" + keyword;
+        String url = "https://api.deezer.com/search?q=" + keyword+ "&limit=50";
 
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<Map> response = restTemplate.getForEntity(url, Map.class);
@@ -75,7 +75,7 @@ public class MusicflowService {
     }
 
     public Map<String, Object> getArtistTopTracks(String artistId) {
-        String url = "https://api.deezer.com/artist/" + artistId + "/top?limit=25";
+        String url = "https://api.deezer.com/artist/" + artistId + "/top?limit=30";
         ResponseEntity<Map> response = restTemplate.getForEntity(url, Map.class);
         return response.getBody();
     }
@@ -100,7 +100,7 @@ public class MusicflowService {
     }
     // Lấy danh sách track trong playlists
     public Map<String, Object> getPlaylistTracks(Long playlistId) {
-        String url = "https://api.deezer.com/playlist/" + playlistId + "/tracks?limit=100";
+        String url = "https://api.deezer.com/playlist/" + playlistId + "/tracks?limit=500";
         Map<String, Object> response = restTemplate.getForObject(url, Map.class);
         return response;
     }
